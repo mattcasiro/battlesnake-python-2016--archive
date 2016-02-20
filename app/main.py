@@ -69,12 +69,15 @@ def move():
     if head[0] -1 >= 0 and not occupied[head[0]-1][head[1]]:
         posMoves['west'] = True
 
-    for x in occupied:
-        print x
+    # for x in occupied:
+    #     print x
+    print "posMoves: {}" .format(posMoves)
 
     for move in posMoves:
         if posMoves[move]:
+            print "Setting decision to {}", .format(move)
             decision = move
+            break
 
     if data['turn'] == 0:
         decision = 0
