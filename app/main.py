@@ -75,7 +75,7 @@ def move():
 
     for move in posMoves:
         if posMoves[move]:
-            print "Setting decision to {}", .format(move)
+            print "Setting decision to {}" .format(move)
             decision = move
             break
 
