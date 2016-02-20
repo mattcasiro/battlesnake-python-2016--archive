@@ -81,22 +81,18 @@ def move():
 
     # return statements
     if decision == 'north':
-        print "Moving north"
         return {
             'move': 'north',
             }
     if decision == 'east':
-        print "Moving east"
         return {
             'move': 'east',
             }
     if decision == 'south':
-        print "Moving south"
         return {
             'move': 'south',
             }
     if decision == 'west':
-        print "Moving west"
         return {
             'move': 'west',
             }
