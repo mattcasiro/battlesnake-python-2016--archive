@@ -35,7 +35,7 @@ def start():
 def move():
     data = bottle.request.json
 
-    for data['snakes'] as snake:
+    for snake in data['snakes']:
         if snake.id == id:
             head = snake.coords[0]
             print "head at: {}, {}" .format(head[0], head[1])
