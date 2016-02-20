@@ -69,7 +69,7 @@ def move():
     if head[0] -1 >= 0 and not occupied[head[0]-1][head[1]]:
         posMoves['west'] = True
 
-    for x in occupied
+    for x in occupied:
         print x
 
     for move in posMoves:
