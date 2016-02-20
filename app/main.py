@@ -36,10 +36,9 @@ def move():
     data = bottle.request.json
 
     for snake in data['snakes']:
-        if snake.id == id:
-            head = snake.coords[0]
-            print "head at: {}, {}" .format(head[0], head[1])
-            break
+        if snake['id'] == id:
+            print snake['coords'][0]
+
 
     return {
         'move': 'north',
