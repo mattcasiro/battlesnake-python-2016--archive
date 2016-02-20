@@ -40,11 +40,16 @@ def move():
         if snake['id'] == id:
             head = snake['coords'][0]
 
-    occupied = [data['width']][data['height']]
-    # Initialize, then build 'bad locs' list
+    
+    occupied = []
     for x in range(0,data['width']):
+        occupied.append([])
         for y in range(0, data['height']):
-            occupied[x][y] = False
+            occupied[x].append(False)
+    # Initialize, then build 'bad locs' list
+    # for x in range(0,data['width']):
+    #     for y in range(0, data['height']):
+    #         occupied[x][y] = False
     for snake in data['snakes']:
         for coord in snake['coords']:
             occupied[coord[0]][coord[1]] = True
