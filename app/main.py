@@ -41,7 +41,7 @@ def move():
 
 
     return {
-        'move': 'north',
+        'move': 'east',
     }
 
 
