@@ -41,8 +41,8 @@ def move():
             head = snake['coords'][0]
 
     # Initialize, then build 'bad locs' list
-    for x in range(0,width):
-        for y in range(0, height):
+    for x in range(0,data['width']):
+        for y in range(0, data['height']):
             occupied[x][y] = False
     for snake in data['snakes']:
         for coord in snake['coords']:
