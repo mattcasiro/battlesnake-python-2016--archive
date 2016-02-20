@@ -1,4 +1,5 @@
 import bottle
+import math
 
 id = "9b1c136b-6edb-43d5-a265-8f528136a608"
 
@@ -29,7 +30,8 @@ def start():
     return {
         'taunt': 'Full Monty Baby'
     }
-
+def dist(coord1, coord2):
+    return abs(coord1[0] - coord2[0]) + abs(coord1[1] - coord2[1])
 
 @bottle.post('/move')
 def move():
@@ -40,21 +42,43 @@ def move():
         if snake['id'] == id:
             head = snake['coords'][0]
 
-    
+    #TO DO REMOVE DEAD SNAKES
     occupied = []
     for x in range(0,data['width']):
         occupied.append([])
         for y in range(0, data['height']):
             occupied[x].append(False)
-    # Initialize, then build 'bad locs' list
-    # for x in range(0,data['width']):
-    #     for y in range(0, data['height']):
-    #         occupied[x][y] = False
+
     for snake in data['snakes']:
         for coord in snake['coords']:
             occupied[coord[0]][coord[1]] = True
 
     posMoves = {'north': False, 'east': False, 'south': False, 'west': False}
+
+    #who is the closest
+    whoFood = []
+    #how far
+    # distFood =[]
+    # for foodAt in data['food']:
+    #     distFood.append(dist(head,foodAt))
+    #     distFood.append("0")
+    #     minDist = 100000
+    #     for snake in data['snake']:
+    #         if dist(snake['coords'][0],foodAt) < minDist:
+    #             minDist = dist(snake['coords'][0],foodAt)
+    #             whoFood[-1] = snake['id']
+    #             if snake['id'] == id:
+    #                 whoFood = 'me'
+    #food to me
+    bestFood = [-1,-1]
+    minDist = 100000;
+    for food in data['food']:
+        if dist(head, food) < minDist:
+            minDist = dist(head, food)
+            bestFood = food
+
+    want = [bestFood[0] - head[0], bestFood[1] - head[1]]
+
 
     # Go north>
     if head[1] -1 >= 0 and not occupied[head[0]][head[1]-1]:
@@ -73,11 +97,21 @@ def move():
     #     print x
     print "posMoves: {}" .format(posMoves)
 
-    for move in posMoves:
-        if posMoves[move]:
-            print "Setting decision to {}" .format(move)
-            decision = move
-            break
+    if want[0] < 0 and posMoves['west']:
+        decision = 'west'
+    elif want[0] > 0 and posMoves['east']:
+        decision = 'east'
+    elif want[1] < 0 and posMoves['north']:
+        decision = 'north'
+    elif want[0] > 0 and posMoves['south']:
+        decision = 'south'
+
+
+    # for move in posMoves:
+    #     if posMoves[move]:
+    #         print "Setting decision to {}" .format(move)
+    #         decision = move
+    #         break
 
     # return statements
     if decision == 'north':
