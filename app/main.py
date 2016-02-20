@@ -15,7 +15,7 @@ def index():
     )
 
     return {
-        'color': '#ffffff',
+        'color': '#ffff00',
         'head': head_url
     }
 
@@ -84,22 +84,22 @@ def move():
         print "Moving north"
         return {
             'move': 'north',
-        }
+            }
     if decision == 'east':
         print "Moving east"
         return {
             'move': 'east',
-        }
+            }
     if decision == 'south':
         print "Moving south"
         return {
             'move': 'south',
-        }
+            }
     if decision == 'west':
         print "Moving west"
         return {
             'move': 'west',
-        }
+            }
 
 
 @bottle.post('/end')
