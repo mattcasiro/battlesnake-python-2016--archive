@@ -39,10 +39,32 @@ def move():
         if snake['id'] == id:
             print snake['coords'][0]
 
+    if data['turn'] == 0:
+        decision = 0
 
-    return {
-        'move': 'east',
-    }
+    elif data['turn'] == 1:
+        decision = 1
+        
+    else:
+        decision = 2
+
+    # return statements
+    if decision == 0:
+        return {
+            'move': 'north',
+        }
+    if decision == 1:
+        return {
+                'move': 'east',
+            }
+    if decision == 2:
+            return {
+                'move': 'south',
+            }
+    if decision == 3:
+            return {
+                'move': 'west',
+            }
 
 
 @bottle.post('/end')
