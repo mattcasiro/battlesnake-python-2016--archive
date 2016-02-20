@@ -79,29 +79,24 @@ def move():
             decision = move
             break
 
-    if data['turn'] == 0:
-        decision = 0
-
-    elif data['turn'] == 1:
-        decision = 1
-
-    else:
-        decision = 2
-
     # return statements
     if decision == 'north':
+        print "Moving north"
         return {
             'move': 'north',
         }
     if decision == 'east':
+        print "Moving east"
         return {
             'move': 'east',
         }
     if decision == 'south':
+        print "Moving south"
         return {
             'move': 'south',
         }
     if decision == 'west':
+        print "Moving west"
         return {
             'move': 'west',
         }
