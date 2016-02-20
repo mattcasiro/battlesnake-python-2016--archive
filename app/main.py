@@ -35,36 +35,64 @@ def start():
 def move():
     data = bottle.request.json
 
+    # Find head
     for snake in data['snakes']:
         if snake['id'] == id:
-            print snake['coords'][0]
+            head = snake['coords'][0]
+
+    # Initialize, then build 'bad locs' list
+    for x in range(0,width):
+        for y in range(0, height):
+            occupied[x][y] = False
+    for snake in data['snakes']:
+        for coord in snake['coords']:
+            occupied[coord[0]][coord[1]] = True
+
+    posMoves{'north': False, 'east': False, 'south': False, 'west': False}
+
+    # Go north>
+    if head[1] -1 >= 0 && not occupied[head[0]][head[1]-1]:
+        posMoves['north'] = True
+    # Go east?
+    if head[0] +1 < data['width'] && not occupied[head[0]+1][head[1]]:
+        posMoves['east'] = True
+    # Go south?
+    if head[1] +1 < data['height'] && not occupied[head[0]][head[1]+1]:
+        posMoves['south'] = True
+    # Go west?
+    if head[0] -1 >= 0 && not occupied[head[0]-1][head[1]]:
+        posMoves['west'] = True
+
+    for move in posMoves:
+        if posMoves[move]:
+            decision = move
 
     if data['turn'] == 0:
         decision = 0
 
     elif data['turn'] == 1:
         decision = 1
-        
+
     else:
         decision = 2
 
     # return statements
-    if decision == 0:
+    if decision == 'north':
         return {
             'move': 'north',
         }
-    if decision == 1:
+    if decision == 'east':
         return {
-                'move': 'east',
-            }
-    if decision == 2:
-            return {
-                'move': 'south',
-            }
-    if decision == 3:
-            return {
-                'move': 'west',
-            }
+            'move': 'east',
+        }
+    if decision == 'south':
+        return {
+            'move': 'south',
+        }
+    if decision == 'west':
+        return {
+            'move': 'west',
+        }
 
 
 @bottle.post('/end')
