@@ -1,5 +1,6 @@
 import bottle
 
+id = "9b1c136b-6edb-43d5-a265-8f528136a608"
 
 @bottle.route('/static/<path:path>')
 def static(path):
@@ -34,11 +35,14 @@ def start():
 def move():
     data = bottle.request.json
 
-    # TODO: Do things with data
+    for data['snakes'] as snake:
+        if snake.id == id:
+            head = snake.coords[0]
+            print "head at: {}, {}" .format(head[0], head[1])
+            break
 
     return {
         'move': 'north',
-        'taunt': 'battlesnake-python!'
     }
 
 
