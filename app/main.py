@@ -14,7 +14,7 @@ def index():
     )
 
     return {
-        'color': '#ffff00',
+        'color': '#ffffff',
         'head': head_url
     }
 
