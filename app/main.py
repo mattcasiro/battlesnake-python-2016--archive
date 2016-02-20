@@ -51,16 +51,16 @@ def move():
     posMoves = {'north': False, 'east': False, 'south': False, 'west': False}
 
     # Go north>
-    if head[1] -1 >= 0 && not occupied[head[0]][head[1]-1]:
+    if head[1] -1 >= 0 and not occupied[head[0]][head[1]-1]:
         posMoves['north'] = True
     # Go east?
-    if head[0] +1 < data['width'] && not occupied[head[0]+1][head[1]]:
+    if head[0] +1 < data['width'] and not occupied[head[0]+1][head[1]]:
         posMoves['east'] = True
     # Go south?
-    if head[1] +1 < data['height'] && not occupied[head[0]][head[1]+1]:
+    if head[1] +1 < data['height'] and not occupied[head[0]][head[1]+1]:
         posMoves['south'] = True
     # Go west?
-    if head[0] -1 >= 0 && not occupied[head[0]-1][head[1]]:
+    if head[0] -1 >= 0 and not occupied[head[0]-1][head[1]]:
         posMoves['west'] = True
 
     for move in posMoves:
