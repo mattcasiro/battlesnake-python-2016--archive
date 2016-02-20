@@ -48,7 +48,7 @@ def move():
         for coord in snake['coords']:
             occupied[coord[0]][coord[1]] = True
 
-    posMoves{'north': False, 'east': False, 'south': False, 'west': False}
+    posMoves = {'north': False, 'east': False, 'south': False, 'west': False}
 
     # Go north>
     if head[1] -1 >= 0 && not occupied[head[0]][head[1]-1]:
