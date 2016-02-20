@@ -23,10 +23,10 @@ def index():
 def start():
     data = bottle.request.json
 
-    # TODO: Do things with data
+    print (data)
 
     return {
-        'taunt': 'battlesnake-python!'
+        'taunt': 'Full Monty Baby'
     }
 
 
@@ -49,7 +49,7 @@ def end():
     # TODO: Do things with data
 
     return {
-        'taunt': 'battlesnake-python!'
+        'taunt': 'You got STRIPPED'
     }
 
 
