@@ -76,8 +76,6 @@ def move():
         if dist(head, food) < minDist:
             minDist = dist(head, food)
             bestFood = food
-            print "Food target: {}" .format(bestFood)
-            print "Head: {}" .format(head)
 
     want = [bestFood[0] - head[0], bestFood[1] - head[1]]
 
@@ -97,9 +95,12 @@ def move():
 
     # for x in occupied:
     #     print x
-    print "posMoves: {}" .format(posMoves)
-    print "x diff: {}" .format(want[0])
-    print "y diff: {}" .format(want[1])
+    if "f729b53e-3477-447d-b07e-c79d7e326c82" in data['snakes']['id']:
+        print "Food target: {}" .format(bestFood)
+        print "Head: {}" .format(head)
+        print "posMoves: {}" .format(posMoves)
+        print "x diff: {}" .format(want[0])
+        print "y diff: {}" .format(want[1])
 
     for move in posMoves:
         if posMoves[move]:
