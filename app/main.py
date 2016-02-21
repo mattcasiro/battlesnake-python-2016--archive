@@ -93,16 +93,6 @@ def move():
     if head[0] -1 >= 0 and not occupied[head[0]-1][head[1]]:
         posMoves['west'] = True
 
-    # for x in occupied:
-    #     print x
-    for snake in data['snakes']:
-        if snake['id'] == "f729b53e-3477-447d-b07e-c79d7e326c82":
-            print "Food target: {}" .format(bestFood)
-            print "Head: {}" .format(head)
-            print "posMoves: {}" .format(posMoves)
-            print "x diff: {}" .format(want[0])
-            print "y diff: {}" .format(want[1])
-
     for move in posMoves:
         if posMoves[move]:
             decision = move
@@ -117,7 +107,14 @@ def move():
     elif want[0] > 0 and posMoves['south']:
         decision = 'south'
 
-    print "Setting decision to {}" .format(move)
+    for snake in data['snakes']:
+    if snake['id'] == "f729b53e-3477-447d-b07e-c79d7e326c82":
+        print "Food target: {}" .format(bestFood)
+        print "Head: {}" .format(head)
+        print "posMoves: {}" .format(posMoves)
+        print "x diff: {}" .format(want[0])
+        print "y diff: {}" .format(want[1])
+        print "Setting decision to {}" .format(move)
 
 
     # return statements
