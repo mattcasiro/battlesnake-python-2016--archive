@@ -102,7 +102,6 @@ def move():
 
     for move in posMoves:
         if posMoves[move]:
-            print "Setting decision to {}" .format(move)
             decision = move
             break
 
@@ -115,7 +114,7 @@ def move():
     elif want[0] > 0 and posMoves['south']:
         decision = 'south'
 
-
+    print "Setting decision to {}" .format(move)
 
 
     # return statements
