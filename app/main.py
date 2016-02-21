@@ -86,7 +86,7 @@ def move():
                     minDist = dist(head, food)
                     theirFood = food
             if theirFood == bestFood:
-                data['food'].pop(foodIndex(bestFood))
+                data['food'].pop(food.index(bestFood))
                 acceptableFood = False
                 break
 
