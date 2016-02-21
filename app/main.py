@@ -55,11 +55,15 @@ def move():
             occupied[x].append(False)
 
     for snake in data['snakes']:
-        if snake['food'] >= ourLength:
-            occupied[coord[0]+1][coord[1]] = True
-            occupied[coord[0]-1][coord[1]] = True
-            occupied[coord[0]][coord[1]+1] = True
-            occupied[coord[0]][coord[1]-1] = True
+        if snake['food'] >= ourLength and snake['id'] not id:
+            if coord[0] + 1 in occupied:
+                occupied[coord[0]+1][coord[1]] = True
+            if coord[0] - 1 in occupied:
+                occupied[coord[0]-1][coord[1]] = True
+            if coord[1] + 1 in occupied[coord[0]]:
+                occupied[coord[0]][coord[1]+1] = True
+            if coord[1] - 1 in occupied[coord[0]]:
+                occupied[coord[0]][coord[1]-1] = True
         for coord in snake['coords']:
             occupied[coord[0]][coord[1]] = True
 
