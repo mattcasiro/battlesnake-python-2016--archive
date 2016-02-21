@@ -108,13 +108,13 @@ def move():
         decision = 'south'
 
     for snake in data['snakes']:
-    if snake['id'] == "f729b53e-3477-447d-b07e-c79d7e326c82":
-        print "Food target: {}" .format(bestFood)
-        print "Head: {}" .format(head)
-        print "posMoves: {}" .format(posMoves)
-        print "x diff: {}" .format(want[0])
-        print "y diff: {}" .format(want[1])
-        print "Setting decision to {}" .format(move)
+        if snake['id'] == "f729b53e-3477-447d-b07e-c79d7e326c82":
+            print "Food target: {}" .format(bestFood)
+            print "Head: {}" .format(head)
+            print "posMoves: {}" .format(posMoves)
+            print "x diff: {}" .format(want[0])
+            print "y diff: {}" .format(want[1])
+            print "Setting decision to {}" .format(move)
 
 
     # return statements
