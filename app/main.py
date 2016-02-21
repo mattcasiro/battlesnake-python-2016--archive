@@ -76,6 +76,7 @@ def move():
         if dist(head, food) < minDist:
             minDist = dist(head, food)
             bestFood = food
+            print "Food target: {}" .format(bestFood)
 
     want = [bestFood[0] - head[0], bestFood[1] - head[1]]
 
@@ -101,9 +102,9 @@ def move():
         decision = 'west'
     elif want[0] > 0 and posMoves['east']:
         decision = 'east'
-    elif want[1] < 0 and posMoves['north']:
+    elif want[1] > 0 and posMoves['north']:
         decision = 'north'
-    elif want[0] > 0 and posMoves['south']:
+    elif want[0] < 0 and posMoves['south']:
         decision = 'south'
 
 
