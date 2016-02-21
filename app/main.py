@@ -58,24 +58,38 @@ def move():
     #who is the closest
     whoFood = []
     #how far
-    # distFood =[]
+    distFood =[]
     # for foodAt in data['food']:
     #     distFood.append(dist(head,foodAt))
     #     distFood.append("0")
     #     minDist = 100000
     #     for snake in data['snake']:
-    #         if dist(snake['coords'][0],foodAt) < minDist:
+    #         if dist(snake['coords'][0],foodAt) <= minDist:
     #             minDist = dist(snake['coords'][0],foodAt)
     #             whoFood[-1] = snake['id']
     #             if snake['id'] == id:
     #                 whoFood = 'me'
-    #food to me
+    # food to me
     bestFood = [-1,-1]
-    minDist = 100000;
-    for food in data['food']:
-        if dist(head, food) < minDist:
-            minDist = dist(head, food)
-            bestFood = food
+    acceptableFood = False
+    while not acceptableFood:
+        minDist = 100000;
+        foodIndex = 0
+        for food in data['food']:
+            if dist(head, food) < minDist:
+                minDist = dist(head, food)
+                bestFood = food
+        for snake in data['snakes']:
+            minDist = 100000;
+            for food in data['food']:
+                if dist(head, food) < minDist:
+                    minDist = dist(head, food)
+                    theirFood = food
+            if theirFood == bestFood:
+                data['food'].pop(foodIndex(bestFood))
+                acceptableFood = False
+                break
+
 
     want = [bestFood[0] - head[0], bestFood[1] - head[1]]
 
