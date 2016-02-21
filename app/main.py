@@ -28,7 +28,7 @@ def start():
     print (data)
 
     return {
-        'taunt': 'Full Monty Baby'
+        'taunt': 'GET IN MAH BELLY'
     }
 def dist(coord1, coord2):
     return abs(coord1[0] - coord2[0]) + abs(coord1[1] - coord2[1])
