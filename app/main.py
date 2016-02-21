@@ -72,10 +72,8 @@ def move():
     # food to me
     bestFood = [-1,-1]
     acceptableFood = False
-    i = 0
 
-    while not acceptableFood and i < 10: 
-        i += 1
+    while not acceptableFood: 
         acceptableFood = True
         minDist = 100000;
         foodIndex = 0
@@ -92,12 +90,11 @@ def move():
                     minDist = dist(snake['coords'][0], food)
                     theirFood = food
             if theirFood == bestFood:
-                # if bestFood == [8,8] or [-1,-1]:
-                #     break
-                # else:
-                data['food'].pop(food.index(bestFood))
-                acceptableFood = False
-                break
+                if bestFood == [8,8] or [-1,-1]:
+                    break
+                else:
+                    bestfood = data['food'][len(data['food'] - 1)]
+                    break
 
 
 
