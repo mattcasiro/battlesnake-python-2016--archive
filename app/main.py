@@ -75,7 +75,7 @@ def move():
     i = 0
 
     while not acceptableFood and i < 10: 
-        i++
+        i += 1
         acceptableFood = True
         minDist = 100000;
         foodIndex = 0
