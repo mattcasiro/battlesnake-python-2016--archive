@@ -97,6 +97,8 @@ def move():
     # for x in occupied:
     #     print x
     print "posMoves: {}" .format(posMoves)
+    print "x diff: {}" .format(want[0])
+    print "y diff: {}" .format(want[1])
 
     if want[0] < 0 and posMoves['west']:
         decision = 'west'
