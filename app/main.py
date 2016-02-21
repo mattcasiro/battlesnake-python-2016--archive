@@ -41,6 +41,7 @@ def move():
     for snake in data['snakes']:
         if snake['id'] == id:
             head = snake['coords'][0]
+            ourLength = snake['food']
 
     #TO DO REMOVE DEAD SNAKES
     occupied = []
@@ -50,6 +51,11 @@ def move():
             occupied[x].append(False)
 
     for snake in data['snakes']:
+        if snake['food'] >= ourLength:
+            occupied[coord[0]+1][coord[1]] = True
+            occupied[coord[0]-1][coord[1]] = True
+            occupied[coord[0]][coord[1]+1] = True
+            occupied[coord[0]][coord[1]-1] = True
         for coord in snake['coords']:
             occupied[coord[0]][coord[1]] = True
 
