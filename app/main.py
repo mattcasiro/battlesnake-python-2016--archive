@@ -77,6 +77,7 @@ def move():
             minDist = dist(head, food)
             bestFood = food
             print "Food target: {}" .format(bestFood)
+            print "Head: {}" .format(head)
 
     want = [bestFood[0] - head[0], bestFood[1] - head[1]]
 
