@@ -100,6 +100,12 @@ def move():
     print "x diff: {}" .format(want[0])
     print "y diff: {}" .format(want[1])
 
+    for move in posMoves:
+        if posMoves[move]:
+            print "Setting decision to {}" .format(move)
+            decision = move
+            break
+
     if want[0] < 0 and posMoves['west']:
         decision = 'west'
     elif want[0] > 0 and posMoves['east']:
@@ -110,11 +116,7 @@ def move():
         decision = 'south'
 
 
-    # for move in posMoves:
-    #     if posMoves[move]:
-    #         print "Setting decision to {}" .format(move)
-    #         decision = move
-    #         break
+
 
     # return statements
     if decision == 'north':
