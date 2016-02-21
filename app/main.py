@@ -104,9 +104,9 @@ def move():
         decision = 'west'
     elif want[0] > 0 and posMoves['east']:
         decision = 'east'
-    elif want[1] > 0 and posMoves['north']:
+    elif want[1] < 0 and posMoves['north']:
         decision = 'north'
-    elif want[0] < 0 and posMoves['south']:
+    elif want[0] > 0 and posMoves['south']:
         decision = 'south'
 
 
