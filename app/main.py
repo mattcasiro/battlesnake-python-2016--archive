@@ -43,6 +43,7 @@ def move():
         if snake['id'] == id:
             head = snake['coords'][0]
             if 'food' in snake:
+                print "food here"
                 ourLength = snake['food']
 
     #TO DO REMOVE DEAD SNAKES
