@@ -1,5 +1,9 @@
 import bottle
+<<<<<<< HEAD
 import math
+=======
+import os
+>>>>>>> 517765e6cd5ca98102bf1fe5872ae560fac94d8b
 
 id = "9b1c136b-6edb-43d5-a265-8f528136a608"
 
@@ -177,4 +181,4 @@ def end():
 # Expose WSGI app (so gunicorn can find it)
 application = bottle.default_app()
 if __name__ == '__main__':
-    bottle.run(application, host='127.0.0.1', port=8080)
+    bottle.run(application, host=os.getenv('IP', '0.0.0.0'), port=os.getenv('PORT', '8080'))
