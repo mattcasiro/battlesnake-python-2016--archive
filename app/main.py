@@ -81,10 +81,12 @@ def move():
                 minDist = dist(head, food)
                 bestFood = food
         for snake in data['snakes']:
+            if snake['id'] == id:
+                continue
             minDist = 100000;
             for food in data['food']:
-                if dist(head, food) < minDist:
-                    minDist = dist(head, food)
+                if dist(snake['coords'][0], food) < minDist:
+                    minDist = dist(snake['coords'][0], food)
                     theirFood = food
             if theirFood == bestFood:
                 if bestFood == [8,8] or [-1,-1]:
