@@ -1,9 +1,6 @@
 import bottle
-<<<<<<< HEAD
 import math
-=======
 import os
->>>>>>> 517765e6cd5ca98102bf1fe5872ae560fac94d8b
 
 id = "9b1c136b-6edb-43d5-a265-8f528136a608"
 
