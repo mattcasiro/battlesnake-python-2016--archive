@@ -73,6 +73,7 @@ def move():
     bestFood = [-1,-1]
     acceptableFood = False
     while not acceptableFood:
+        acceptableFood = True
         minDist = 100000;
         foodIndex = 0
         for food in data['food']:
@@ -86,10 +87,13 @@ def move():
                     minDist = dist(head, food)
                     theirFood = food
             if theirFood == bestFood:
-                if bestFood not [8,8] and not [-1,-1]:
+                if bestFood == [8,8] or [-1,-1]:
+                    break
+                else:
                     data['food'].pop(food.index(bestFood))
                     acceptableFood = False
                     break
+
 
 
     want = [bestFood[0] - head[0], bestFood[1] - head[1]]
